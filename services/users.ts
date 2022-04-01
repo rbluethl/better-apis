@@ -9,19 +9,6 @@ import { Paged } from 'models/paged'
 import { Error } from 'models/error'
 
 const createUser = (params: UserCreateParams): User | Error => {
-  if (!params.name) {
-    return {
-      code: 'invalid_parameters',
-      message: '`name` is required'
-    }
-  }
-  if (!params.email) {
-    return {
-      code: 'invalid_parameters',
-      message: '`email` is required'
-    }
-  }
-
   const now = new Date()
 
   return {
@@ -34,10 +21,6 @@ const createUser = (params: UserCreateParams): User | Error => {
 }
 
 const getUser = (id: string): User | null => {
-  if (id.startsWith('_')) {
-    return null
-  }
-
   const now = new Date()
   const { name, email } = getNameAndEmail(now.getMilliseconds())
 
@@ -94,8 +77,7 @@ const updateUser = (id: string, params: UserUpdateParams): User => {
   }
 }
 
-const deleteUser = (id: string): void => {
-}
+const deleteUser = (id: string): void => {}
 
 const getNameAndEmail = (i: number) => {
   return {
