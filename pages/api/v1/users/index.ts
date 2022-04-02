@@ -22,7 +22,7 @@ export default function handler(
     if (!params.email) {
       return res.status(400).json({
         code: 'invalid_parameters',
-        message: '`name` is required'
+        message: '`email` is required'
       })
     }
 
