@@ -32,7 +32,11 @@ export default function handler(
 
   // GET /api/v1/users
   if (req.method === 'GET') {
-    const response = getUsers(req.body)
+    const response = getUsers({
+      page_number: +(req.query.page_number ?? 1),
+      page_size: +(req.query.page_size ?? 10),
+      expand: (req.query.expand as string)?.split(',')
+    })
     res.status(200).json(response)
   }
 

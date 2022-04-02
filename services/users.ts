@@ -43,13 +43,24 @@ const getUsers = (params: UserListParams): Paged<User> => {
 
     const { name, email } = getNameAndEmail(i)
 
-    return {
+    const user: User = {
       id: nanoid(8),
       name,
       email,
       created_at: created.toISOString(),
       modified_at: modified.toISOString()
     }
+
+    if (params.expand?.includes('orders')) {
+      user.orders = [
+        {
+          id: nanoid(8),
+          total_amount: Math.round(Math.random() * 100)
+        }
+      ]
+    }
+
+    return user
   })
 
   return {

@@ -1,9 +1,12 @@
+import { Order } from 'models/order'
+
 export type User = {
   id: string
   name: string
   email: string
   created_at: string
   modified_at: string
+  orders?: Order[]
 }
 
 export type UserCreateParams = {
@@ -12,10 +15,10 @@ export type UserCreateParams = {
   language: string
 }
 
-
 export type UserListParams = {
   page_number: number
-  page_size: number  
+  page_size: number
+  expand: string[]
 }
 
 export type UserUpdateParams = UserCreateParams
