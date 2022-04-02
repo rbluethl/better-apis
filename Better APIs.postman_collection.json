@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "58236566-4fa3-4fb5-8264-b9aae90e7165",
+		"name": "Better APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/{{version}}/status",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Ronald Blüthl\",\n    \"email\": \"rbluethl@average-company.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/{{version}}/users",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Ronald Blüthl\",\n    \"email\": \"rbluethl@average-company.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/{{version}}/users/n8E9UAPf",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"users",
+						"n8E9UAPf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/{{version}}/users?page_number=2&page_size=20",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page_number",
+							"value": "2"
+						},
+						{
+							"key": "page_size",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Ronald Blüthl\",\n    \"email\": \"rbluethl@average-company.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/{{version}}/users/n8E9UAPf",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"users",
+						"n8E9UAPf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Ronald Blüthl\",\n    \"email\": \"rbluethl@average-company.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/{{version}}/users/n8E9UAPf",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"{{version}}",
+						"users",
+						"n8E9UAPf"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "default"
+		},
+		{
+			"key": "version",
+			"value": "v1",
+			"type": "default"
+		}
+	]
+}
