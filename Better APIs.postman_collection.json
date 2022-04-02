@@ -90,7 +90,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/api/{{version}}/users?page_number=2&page_size=20",
+					"raw": "{{base_url}}/api/{{version}}/users?page_number=1&page_size=10",
 					"host": [
 						"{{base_url}}"
 					],
@@ -102,11 +102,11 @@
 					"query": [
 						{
 							"key": "page_number",
-							"value": "2"
+							"value": "1"
 						},
 						{
 							"key": "page_size",
-							"value": "20"
+							"value": "10"
 						}
 					]
 				}
