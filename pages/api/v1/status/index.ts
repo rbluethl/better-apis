@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { notFound } from 'models/error'
+import { methodNotAllowed } from 'models/error'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   // GET /api/v1/status
   if (req.method === 'GET') {
-    res.status(200).end()
+    return res.status(200).end()
   }
 
-  res.status(405).end(notFound)
+  return res.status(405).end(methodNotAllowed)
 }

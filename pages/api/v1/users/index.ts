@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { User, UserCreateParams } from 'models/user'
 import { createUser, getUsers } from 'services/users'
 import { Paged } from 'models/paged'
-import { Error, notFound } from 'models/error'
+import { Error, methodNotAllowed } from 'models/error'
 
 export default function handler(
   req: NextApiRequest,
@@ -13,21 +13,21 @@ export default function handler(
     const params = req.body as UserCreateParams
 
     if (!params.name) {
-      res.status(400).json({
+      return res.status(400).json({
         code: 'invalid_parameters',
         message: '`name` is required'
       })
     }
 
     if (!params.email) {
-      res.status(400).json({
+      return res.status(400).json({
         code: 'invalid_parameters',
         message: '`name` is required'
       })
     }
 
     const user = createUser(req.body)
-    res.status(201).json(user)
+    return res.status(201).json(user)
   }
 
   // GET /api/v1/users
@@ -37,9 +37,8 @@ export default function handler(
       page_size: +(req.query.page_size ?? 10),
       expand: (req.query.expand as string)?.split(',')
     })
-    res.status(200).json(response)
+    return res.status(200).json(response)
   }
 
-  console.log(notFound)
-  res.status(405).json(notFound)
+  return res.status(405).json(methodNotAllowed)
 }
