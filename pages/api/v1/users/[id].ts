@@ -13,7 +13,7 @@ export default function handler(
   if (req.method === 'GET') {
     const user = getUser(id)
     if (!user) {
-      return res.status(404).end(notFound)
+      return res.status(404).json(notFound)
     } else {
       return res.status(200).json(user)
     }

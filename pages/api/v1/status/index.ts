@@ -9,5 +9,5 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     })
   }
 
-  return res.status(405).end(methodNotAllowed)
+  return res.status(405).json(methodNotAllowed)
 }
